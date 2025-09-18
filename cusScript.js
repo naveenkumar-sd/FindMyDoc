@@ -136,3 +136,30 @@
      }
 
  });
+
+
+ //for fetch datas from api
+
+ fetch('https://jsonplaceholder.typicode.com/users')
+     .then(res => res.json())
+     .then(data => {
+
+         console.log(data);
+
+         const stateSelect = document.getElementById('state');
+         // To avoid duplicate cities, use a Set
+         const cities = new Set();
+         data.forEach(user => {
+             cities.add(user.address.city);
+         });
+         // Clear any existing options except the first
+         stateSelect.innerHTML = '<option value="">Select State</option>';
+         cities.forEach(city => {
+             const option = document.createElement('option');
+             option.value = city;
+             option.textContent = city;
+             option.id = city;
+             stateSelect.appendChild(option);
+         });
+     })
+     .catch(error => console.log(error));

@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="Assets/stethoscope.svg" type="image/x-icon">
+    <title>FindMyDOC</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="doctorStyle.css">
+
+</head>
+
+<body>
+    <!-- Auth Pages -->
+    <div class="auth-container" id="auth-container">
+        <div class="auth-left">
+            <h1>FindMyDOC</h1>
+            <p>Your comprehensive doctor dashboard for managing appointments, patients, and medical events.</p>
+        </div>
+        <div class="auth-right">
+            <div class="auth-form" id="login-form">
+                <h2>Sign In to Your Account</h2>
+                <div class="form-group">
+                    <label for="login-email">Email Address</label>
+                    <input type="email" id="login-email" placeholder="Enter your email">
+                </div>
+                <div class="form-group">
+                    <label for="login-password">Password</label>
+                    <input type="password" id="login-password" placeholder="Enter your password">
+                </div>
+                <button class="btn btn-primary" onclick="login()">Sign In</button>
+                <div class="auth-switch">
+                    Don't have an account? <a href="#" onclick="showSignup()">Sign up</a>
+                </div>
+            </div>
+
+            <div class="auth-form" id="signup-form" style="display: none;">
+                <h2>Create New Account</h2>
+                <div class="form-group">
+                    <label for="signup-name">Full Name</label>
+                    <input type="text" id="signup-name" placeholder="Enter your full name">
+                </div>
+                <div class="form-group">
+                    <label for="signup-email">Email Address</label>
+                    <input type="email" id="signup-email" placeholder="Enter your email">
+                </div>
+                <div class="form-group">
+                    <label for="signup-password">Password</label>
+                    <input type="password" id="signup-password" placeholder="Create a password">
+                </div>
+                <div class="form-group">
+                    <label for="signup-confirm">Confirm Password</label>
+                    <input type="password" id="signup-confirm" placeholder="Confirm your password">
+                </div>
+                <button class="btn btn-primary" onclick="signup()">Sign Up</button>
+                <div class="auth-switch">
+                    Already have an account? <a href="#" onclick="showLogin()">Sign in</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Dashboard -->
+    <div class="dashboard-container" id="dashboard-container">
+        <div class="sidebar">
+            <div class="sidebar-header">
+                <h2>FindMyDOC</h2>
+            </div>
+            <ul class="sidebar-menu">
+                <li><a href="#" class="active" onclick="showPage('home')"><i class="fas fa-home"></i> <span>Home</span></a></li>
+                <li><a href="#" onclick="showPage('profile')"><i class="fas fa-user-md"></i> <span>Profile</span></a></li>
+                <li><a href="#" onclick="showPage('appointments')"><i class="fas fa-calendar-check"></i> <span>Appointments</span></a></li>
+                <li><a href="#" onclick="showPage('events')"><i class="fas fa-calendar-day"></i> <span>Events</span></a></li>
+                <li><a href="#" onclick="showPage('settings')"><i class="fas fa-cog"></i> <span>Settings</span></a></li>
+                <li><a href="#" onclick="logout()"><i class="fas fa-sign-out-alt"></i> <span>Logout</span></a></li>
+            </ul>
+        </div>
+
+        <div class="main-content">
+            <div class="header">
+                <h1 class="page-title" id="page-title">Dashboard</h1>
+                <div class="user-info">
+                    <img src="https://ui-avatars.com/api/?name=Doctor+User&background=00BFA6&color=fff" alt="User">
+                    <span>Dr. Smith</span>
+                </div>
+            </div>
+
+            <!-- Home Page -->
+            <div class="page-content" id="home-page">
+                <div class="stats-cards">
+                    <div class="card stat-card">
+                        <div class="stat-icon appointments">
+                            <i class="fas fa-calendar-check"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h3>12</h3>
+                            <p>Today's Appointments</p>
+                        </div>
+                    </div>
+
+                    <div class="card stat-card">
+                        <div class="stat-icon events">
+                            <i class="fas fa-calendar-day"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h3>3</h3>
+                            <p>Upcoming Events</p>
+                        </div>
+                    </div>
+
+                    <div class="card stat-card">
+                        <div class="stat-icon patients">
+                            <i class="fas fa-user-injured"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h3>42</h3>
+                            <p>Total Patients</p>
+                        </div>
+                    </div>
+                </div>
+
+                <h2 class="section-title">Upcoming Appointments</h2>
+                <table class="appointments-table">
+                    <thead>
+                        <tr>
+                            <th>Patient</th>
+                            <th>Time</th>
+                            <th>Service</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>John Doe</td>
+                            <td>10:00 AM</td>
+                            <td>General Consultation</td>
+                            <td><span class="status-badge status-confirmed">Confirmed</span></td>
+                        </tr>
+                        <tr>
+                            <td>Jane Smith</td>
+                            <td>11:30 AM</td>
+                            <td>Follow-up Visit</td>
+                            <td><span class="status-badge status-confirmed">Confirmed</span></td>
+                        </tr>
+                        <tr>
+                            <td>Robert Brown</td>
+                            <td>2:15 PM</td>
+                            <td>Health Checkup</td>
+                            <td><span class="status-badge status-pending">Pending</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h2 class="section-title">Upcoming Events</h2>
+                <div class="events-grid">
+                    <div class="card event-card">
+                        <div class="event-header">
+                            <h3>Health Camp</h3>
+                        </div>
+                        <div class="event-body">
+                            <h4>Free Diabetes Screening</h4>
+                            <div class="event-date">
+                                <i class="fas fa-calendar-alt"></i>
+                                <span>June 15, 2023 | 9:00 AM - 4:00 PM</span>
+                            </div>
+                            <p>Community health center for free diabetes screening and consultation.</p>
+                        </div>
+                    </div>
+
+                    <div class="card event-card">
+                        <div class="event-header">
+                            <h3>Webinar</h3>
+                        </div>
+                        <div class="event-body">
+                            <h4>Advances in Cardiology</h4>
+                            <div class="event-date">
+                                <i class="fas fa-calendar-alt"></i>
+                                <span>June 20, 2023 | 6:00 PM - 8:00 PM</span>
+                            </div>
+                            <p>Online webinar discussing recent advances in cardiology treatments.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Profile Page -->
+            <div class="page-content" id="profile-page" style="display: none;">
+                <div class="card profile-form">
+                    <h2 class="section-title">Professional Profile</h2>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="specialization">Specialization</label>
+                            <input type="text" id="specialization" value="Cardiology">
+                        </div>
+                        <div class="form-group">
+                            <label for="experience">Years of Experience</label>
+                            <input type="number" id="experience" value="12">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="qualifications">Qualifications</label>
+                        <input type="text" id="qualifications" value="MD, DM Cardiology">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="consultation-fee">Consultation Fee (₹)</label>
+                        <input type="number" id="consultation-fee" value="1500">
+                    </div>
+
+                    <h2 class="section-title">Availability</h2>
+                    <table class="availability-table">
+                        <thead>
+                            <tr>
+                                <th>Day</th>
+                                <th>9:00-11:00</th>
+                                <th>11:00-1:00</th>
+                                <th>2:00-4:00</th>
+                                <th>4:00-6:00</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th>Monday</th>
+                                <td class="time-slot selected">Available</td>
+                                <td class="time-slot selected">Available</td>
+                                <td class="time-slot">Not Available</td>
+                                <td class="time-slot selected">Available</td>
+                            </tr>
+                            <tr>
+                                <th>Tuesday</th>
+                                <td class="time-slot selected">Available</td>
+                                <td class="time-slot selected">Available</td>
+                                <td class="time-slot">Not Available</td>
+                                <td class="time-slot selected">Available</td>
+                            </tr>
+                            <tr>
+                                <th>Wednesday</th>
+                                <td class="time-slot">Not Available</td>
+                                <td class="time-slot selected">Available</td>
+                                <td class="time-slot selected">Available</td>
+                                <td class="time-slot">Not Available</td>
+                            </tr>
+                            <tr>
+                                <th>Thursday</th>
+                                <td class="time-slot selected">Available</td>
+                                <td class="time-slot selected">Available</td>
+                                <td class="time-slot">Not Available</td>
+                                <td class="time-slot selected">Available</td>
+                            </tr>
+                            <tr>
+                                <th>Friday</th>
+                                <td class="time-slot selected">Available</td>
+                                <td class="time-slot selected">Available</td>
+                                <td class="time-slot">Not Available</td>
+                                <td class="time-slot">Not Available</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <button class="btn btn-primary">Save Changes</button>
+                </div>
+            </div>
+
+            <!-- Appointments Page -->
+            <div class="page-content" id="appointments-page" style="display: none;">
+                <h2 class="section-title">Appointment Management</h2>
+
+                <div class="card">
+                    <table class="appointments-table">
+                        <thead>
+                            <tr>
+                                <th>Patient</th>
+                                <th>Date & Time</th>
+                                <th>Service</th>
+                                <th>Status</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>John Doe</td>
+                                <td>Jun 12, 2023 10:00 AM</td>
+                                <td>General Consultation</td>
+                                <td><span class="status-badge status-confirmed">Confirmed</span></td>
+                                <td>
+                                    <button class="btn-action btn-reschedule">Reschedule</button>
+                                    <button class="btn-action btn-cancel">Cancel</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Jane Smith</td>
+                                <td>Jun 12, 2023 11:30 AM</td>
+                                <td>Follow-up Visit</td>
+                                <td><span class="status-badge status-confirmed">Confirmed</span></td>
+                                <td>
+                                    <button class="btn-action btn-reschedule">Reschedule</button>
+                                    <button class="btn-action btn-cancel">Cancel</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Robert Brown</td>
+                                <td>Jun 12, 2023 2:15 PM</td>
+                                <td>Health Checkup</td>
+                                <td><span class="status-badge status-pending">Pending</span></td>
+                                <td>
+                                    <button class="btn-action btn-confirm">Confirm</button>
+                                    <button class="btn-action btn-reschedule">Reschedule</button>
+                                    <button class="btn-action btn-cancel">Cancel</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Sarah Johnson</td>
+                                <td>Jun 13, 2023 9:30 AM</td>
+                                <td>Cardiology Consultation</td>
+                                <td><span class="status-badge status-pending">Pending</span></td>
+                                <td>
+                                    <button class="btn-action btn-confirm">Confirm</button>
+                                    <button class="btn-action btn-reschedule">Reschedule</button>
+                                    <button class="btn-action btn-cancel">Cancel</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Events Page -->
+            <div class="page-content" id="events-page" style="display: none;">
+                <div class="header">
+                    <h2 class="section-title">Event Management</h2>
+                    <button class="btn btn-primary" onclick="showModal('create-event')">Create New Event</button>
+                </div>
+
+                <div class="events-grid">
+                    <div class="card event-card">
+                        <div class="event-header">
+                            <h3>Health Camp</h3>
+                        </div>
+                        <div class="event-body">
+                            <h4>Free Diabetes Screening</h4>
+                            <div class="event-date">
+                                <i class="fas fa-calendar-alt"></i>
+                                <span>June 15, 2023 | 9:00 AM - 4:00 PM</span>
+                            </div>
+                            <p>Community health center for free diabetes screening and consultation.</p>
+                            <div class="event-actions">
+                                <button class="btn-action btn-reschedule">Edit</button>
+                                <button class="btn-action btn-cancel">Delete</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card event-card">
+                        <div class="event-header">
+                            <h3>Webinar</h3>
+                        </div>
+                        <div class="event-body">
+                            <h4>Advances in Cardiology</h4>
+                            <div class="event-date">
+                                <i class="fas fa-calendar-alt"></i>
+                                <span>June 20, 2023 | 6:00 PM - 8:00 PM</span>
+                            </div>
+                            <p>Online webinar discussing recent advances in cardiology treatments.</p>
+                            <div class="event-actions">
+                                <button class="btn-action btn-reschedule">Edit</button>
+                                <button class="btn-action btn-cancel">Delete</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card event-card">
+                        <div class="event-header">
+                            <h3>Awareness Session</h3>
+                        </div>
+                        <div class="event-body">
+                            <h4>Heart Health Awareness</h4>
+                            <div class="event-date">
+                                <i class="fas fa-calendar-alt"></i>
+                                <span>June 25, 2023 | 3:00 PM - 5:00 PM</span>
+                            </div>
+                            <p>Community center session on heart health and preventive measures.</p>
+                            <div class="event-actions">
+                                <button class="btn-action btn-reschedule">Edit</button>
+                                <button class="btn-action btn-cancel">Delete</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Settings Page -->
+            <div class="page-content" id="settings-page" style="display: none;">
+                <h2 class="section-title">Account Settings</h2>
+
+                <div class="card">
+                    <ul class="settings-options">
+                        <li>
+                            <a href="#">
+                                <span>Personal Information</span>
+                                <i class="fas fa-chevron-right"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <span>Security</span>
+                                <i class="fas fa-chevron-right"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <span>Notifications</span>
+                                <i class="fas fa-chevron-right"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <span>Privacy</span>
+                                <i class="fas fa-chevron-right"></i>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Create Event Modal -->
+    <div class="modal" id="create-event-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Create New Event</h2>
+                <button class="close-modal" onclick="closeModal('create-event')">&times;</button>
+            </div>
+            <div class="form-group">
+                <label for="event-type">Event Type</label>
+                <select id="event-type" class="form-control">
+                    <option value="health-camp">Health Camp</option>
+                    <option value="webinar">Online Webinar</option>
+                    <option value="awareness">Awareness Session</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="event-title">Event Title</label>
+                <input type="text" id="event-title" placeholder="Enter event title">
+            </div>
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="event-date">Date</label>
+                    <input type="date" id="event-date">
+                </div>
+                <div class="form-group">
+                    <label for="event-time">Time</label>
+                    <input type="time" id="event-time">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="event-duration">Duration (hours)</label>
+                <input type="number" id="event-duration" min="1" value="2">
+            </div>
+            <div class="form-group">
+                <label for="event-description">Description</label>
+                <textarea id="event-description" rows="3" placeholder="Event description"></textarea>
+            </div>
+            <button class="btn btn-primary">Create Event</button>
+        </div>
+    </div>
+
+    <script src="doctorScript.js"></script>
+
+    </script>
+</body>
+
+</html>

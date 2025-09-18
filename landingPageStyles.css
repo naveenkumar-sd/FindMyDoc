@@ -1,0 +1,242 @@
+    :root {
+       --primary: #00BFA6;
+       --primary-dark: #00a38c;
+       --accent: #00BFA6;
+       --accent-dark: #00a38c;
+       --cta: #FF7043;
+       --cta-dark: #f05c30;
+       --attention: #FFD54F;
+       --background: #FAFAFA;
+       --text-primary: #212121;
+       --text-secondary: #616161;
+       --card-bg: #FFFFFF;
+       --border: #E0E0E0;
+       --nav-bg: #55555f;
+   }
+   
+   * {
+       margin: 0;
+       padding: 0;
+       box-sizing: border-box;
+       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+   }
+   
+   body {
+       background-color: var(--background);
+       color: var(--text-primary);
+       min-height: 100vh;
+       display: flex;
+       flex-direction: column;
+   }
+   
+   header {
+       background-color: var(--nav-bg);
+       color: white;
+       padding: 1rem 2rem;
+       display: flex;
+       justify-content: space-between;
+       align-items: center;
+   }
+   
+   .logo {
+       display: flex;
+       align-items: center;
+       gap: 0.5rem;
+       font-size: 1.5rem;
+       font-weight: 600;
+   }
+   
+   .logo i {
+       color: var(--primary);
+   }
+   
+   .hero {
+       flex: 1;
+       display: flex;
+       flex-direction: column;
+       justify-content: center;
+       align-items: center;
+       padding: 2rem;
+       text-align: center;
+       background: linear-gradient(to bottom, rgba(0, 191, 166, 0.1), rgba(0, 191, 166, 0.05));
+   }
+   
+   .hero-content {
+       max-width: 800px;
+       margin-bottom: 3rem;
+   }
+   
+   .hero h1 {
+       font-size: 2.8rem;
+       margin-bottom: 1rem;
+       color: var(--text-primary);
+   }
+   
+   .hero p {
+       font-size: 1.2rem;
+       color: var(--text-secondary);
+       margin-bottom: 2rem;
+       line-height: 1.6;
+   }
+   
+   .options-container {
+       display: flex;
+       justify-content: center;
+       gap: 2rem;
+       flex-wrap: wrap;
+       margin-top: 2rem;
+   }
+   
+   .option-card {
+       background-color: var(--card-bg);
+       border-radius: 10px;
+       box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+       padding: 2.5rem;
+       width: 320px;
+       text-align: center;
+       transition: transform 0.3s, box-shadow 0.3s;
+       display: flex;
+       flex-direction: column;
+       align-items: center;
+   }
+   
+   .option-card:hover {
+       transform: translateY(-5px);
+       box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+   }
+   
+   .option-icon {
+       width: 80px;
+       height: 80px;
+       border-radius: 50%;
+       display: flex;
+       justify-content: center;
+       align-items: center;
+       margin-bottom: 1.5rem;
+       font-size: 2rem;
+       color: white;
+   }
+   
+   .customer .option-icon {
+       background-color: var(--primary);
+   }
+   
+   .doctor .option-icon {
+       background-color: var(--cta);
+   }
+   
+   .option-card h2 {
+       font-size: 1.8rem;
+       margin-bottom: 1rem;
+       color: var(--text-primary);
+   }
+   
+   .option-card p {
+       color: var(--text-secondary);
+       margin-bottom: 1.5rem;
+       line-height: 1.5;
+   }
+   
+   .btn {
+       padding: 0.8rem 1.8rem;
+       border: none;
+       border-radius: 50px;
+       font-size: 1rem;
+       font-weight: 600;
+       cursor: pointer;
+       transition: background-color 0.3s, transform 0.2s;
+       display: inline-flex;
+       align-items: center;
+       gap: 0.5rem;
+   }
+   
+   .btn:hover {
+       transform: translateY(-2px);
+   }
+   
+   .btn-customer {
+       background-color: var(--primary);
+       color: white;
+   }
+   
+   .btn-customer i {
+       margin-top: 4px;
+   }
+   
+   .btn a {
+       color: white;
+       text-decoration: none;
+   }
+   
+   .btn-customer:hover {
+       background-color: var(--primary-dark);
+   }
+   
+   .btn-doctor {
+       background-color: var(--cta);
+       color: white;
+   }
+   
+   .btn-doctor i {
+       margin-top: 4px;
+   }
+   
+   .btn-doctor:hover {
+       background-color: var(--cta-dark);
+   }
+   
+   footer {
+       background-color: var(--nav-bg);
+       color: white;
+       text-align: center;
+       padding: 1.5rem;
+       margin-top: 2rem;
+   }
+   
+   .features {
+       display: flex;
+       justify-content: center;
+       gap: 2rem;
+       flex-wrap: wrap;
+       margin: 4rem 0;
+       padding: 0 2rem;
+   }
+   
+   .feature {
+       background-color: var(--card-bg);
+       border-radius: 10px;
+       padding: 1.5rem;
+       width: 250px;
+       text-align: center;
+       box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+   }
+   
+   .feature i {
+       font-size: 2rem;
+       color: var(--primary);
+       margin-bottom: 1rem;
+   }
+   
+   .feature h3 {
+       margin-bottom: 0.5rem;
+       color: var(--text-primary);
+   }
+   
+   .feature p {
+       color: var(--text-secondary);
+       font-size: 0.9rem;
+   }
+   
+   @media (max-width: 768px) {
+       .hero h1 {
+           font-size: 2.2rem;
+       }
+       .options-container {
+           flex-direction: column;
+           align-items: center;
+       }
+       .option-card {
+           width: 100%;
+           max-width: 400px;
+       }
+   }
