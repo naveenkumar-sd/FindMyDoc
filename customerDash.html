@@ -28,13 +28,20 @@
                     <a href="#" class="nav-link" data-page="profile">Profile</a>
 
                 </div>
-                <div class="user-actions">
+
+                <div class="user-actions" id="user-actions">
                     <button class="btn btn-outline nav-link" data-page="login">Login</button>
                     <button class="btn btn-primary nav-link" data-page="sign-up">Sign Up</button>
                 </div>
                 <button class="mobile-menu-btn">
                     <i class="fas fa-bars"></i>
                 </button>
+
+                <div class="user-info activeUser" id="user-info">
+                    <i class="fa-solid fa-user"></i>
+                    <p></p>
+                </div>
+
             </nav>
         </div>
     </header>
@@ -43,7 +50,7 @@
     <div id="home-page" class="page active">
         <div class="container">
             <div class="welcome-section">
-                <h1>Welcome back, Naveen!</h1>
+                <h1>Welcome back, Gopi!</h1>
                 <p>Find and book doctors around you with ease. Get the best healthcare experience.</p>
 
                 <div class="search-bar">
@@ -52,11 +59,11 @@
                         <div class="form-group">
                             <label for="state">State</label>
                             <select id="state">
-                                <!-- <option value="">Select State</option>
+                                <option value="">Select State</option>
                                 <option value="ca">TamilNadu</option>
                                 <option value="ny">Kerala</option>
                                 <option value="tx">Karnataka</option>
-                                <option value="fl">Maharastra</option> -->
+                                <option value="fl">Maharastra</option>
                             </select>
                         </div>
                         <div class="form-group">
@@ -96,83 +103,6 @@
                 </div>
             </div>
 
-            <h2>Recommended Doctors</h2>
-            <div class="doctors-grid">
-                <div class="doctor-card">
-                    <div class="doctor-image">
-                        <i class="fas fa-user-md"></i>
-                    </div>
-                    <div class="doctor-info">
-                        <h3 class="doctor-name">Dr. Michael Johnson</h3>
-                        <p class="doctor-specialty">Cardiologist</p>
-                        <div class="doctor-details">
-                            <div class="doctor-detail">
-                                <i class="fas fa-map-marker-alt"></i>
-                                <span>5 km away</span>
-                            </div>
-                            <div class="doctor-detail">
-                                <i class="fas fa-star rating"></i>
-                                <span>4.8 (120 reviews)</span>
-                            </div>
-                        </div>
-                        <div class="doctor-detail">
-                            <i class="fas fa-clock"></i>
-                            <span>Available Today</span>
-                        </div>
-                        <button class="btn btn-cta" style="width: 100%; margin-top: 15px;">View Profile</button>
-                    </div>
-                </div>
-
-                <div class="doctor-card">
-                    <div class="doctor-image">
-                        <i class="fas fa-user-md"></i>
-                    </div>
-                    <div class="doctor-info">
-                        <h3 class="doctor-name">Dr. Sarah Williams</h3>
-                        <p class="doctor-specialty">Dermatologist</p>
-                        <div class="doctor-details">
-                            <div class="doctor-detail">
-                                <i class="fas fa-map-marker-alt"></i>
-                                <span>3 km away</span>
-                            </div>
-                            <div class="doctor-detail">
-                                <i class="fas fa-star rating"></i>
-                                <span>4.9 (95 reviews)</span>
-                            </div>
-                        </div>
-                        <div class="doctor-detail">
-                            <i class="fas fa-clock"></i>
-                            <span>Available Tomorrow</span>
-                        </div>
-                        <button class="btn btn-cta" style="width: 100%; margin-top: 15px;">View Profile</button>
-                    </div>
-                </div>
-
-                <div class="doctor-card">
-                    <div class="doctor-image">
-                        <i class="fas fa-user-md"></i>
-                    </div>
-                    <div class="doctor-info">
-                        <h3 class="doctor-name">Dr. Robert Brown</h3>
-                        <p class="doctor-specialty">Orthopedic Surgeon</p>
-                        <div class="doctor-details">
-                            <div class="doctor-detail">
-                                <i class="fas fa-map-marker-alt"></i>
-                                <span>7 km away</span>
-                            </div>
-                            <div class="doctor-detail">
-                                <i class="fas fa-star rating"></i>
-                                <span>4.7 (84 reviews)</span>
-                            </div>
-                        </div>
-                        <div class="doctor-detail">
-                            <i class="fas fa-clock"></i>
-                            <span>Available on Friday</span>
-                        </div>
-                        <button class="btn btn-cta" style="width: 100%; margin-top: 15px;">View Profile</button>
-                    </div>
-                </div>
-            </div>
         </div>
     </div>
 
@@ -234,9 +164,9 @@
                 </div>
             </div>
 
-            <div class="doctors-grid">
+            <div class="doctors-grid" id="doctors-grid">
                 <!-- Doctor cards  -->
-                <div class="doctor-card">
+                <!-- <div class="doctor-card">
                     <div class="doctor-image">
                         <i class="fas fa-user-md"></i>
                     </div>
@@ -350,7 +280,7 @@
                         </div>
                         <button class="btn btn-cta" style="width: 100%; margin-top: 15px;">Book Appointment</button>
                     </div>
-                </div>
+                </div> -->
             </div>
         </div>
     </div>
@@ -360,9 +290,9 @@
         <div class="container">
             <h2 class="page-title">My Appointments</h2>
 
-            <div class="appointment-card">
+            <!-- <div class="appointment-card">
                 <div class="appointment-info">
-                    <h3>Dr. Michael Johnson</h3>
+                    <h3>Dr. Gopi</h3>
                     <p>Cardiologist</p>
                     <p><i class="fas fa-calendar"></i> October 15, 2023 | <i class="fas fa-clock"></i> 10:30 AM</p>
                 </div>
@@ -380,27 +310,61 @@
 
             <div class="appointment-card">
                 <div class="appointment-info">
-                    <h3>Dr. Robert Brown</h3>
+                    <h3>Dr. Naveen</h3>
                     <p>Orthopedic Surgeon</p>
                     <p><i class="fas fa-calendar"></i> September 15, 2023 | <i class="fas fa-clock"></i> 11:00 AM</p>
                 </div>
                 <div class="appointment-status status-completed">Completed</div>
-            </div>
+            </div> -->
         </div>
     </div>
 
     <div id="events-page" class="page">
         <div class="container">
             <h2 class="page-title">My Events</h2>
-            <p>You haven't registered for any events yet.</p>
+            <div class="events-grid" id="events-grid">
+                <!-- <div class="card event-card">
+                    <div class="event-header">
+                        <h3>Health Camp</h3>
+                    </div>
+                    <div class="event-body">
+                        <h4>Free Diabetes Screening</h4>
+                        <div class="event-date">
+                            <i class="fas fa-calendar-alt"></i>
+                            <span>June 15, 2023 | 9:00 AM - 4:00 PM</span>
+                        </div>
+                        <p>Community health center for free diabetes screening and consultation.</p>
+                    </div>
+                    <div class="event-button">
+                        <button class="btn btn-cta">Register</button>
+                    </div>
+                </div>
+
+                <div class="card event-card">
+                    <div class="event-header">
+                        <h3>Webinar</h3>
+                    </div>
+                    <div class="event-body">
+                        <h4>Advances in Cardiology</h4>
+                        <div class="event-date">
+                            <i class="fas fa-calendar-alt"></i>
+                            <span>June 20, 2023 | 6:00 PM - 8:00 PM</span>
+                        </div>
+                        <p>Online webinar discussing recent advances in cardiology treatments.</p>
+                    </div>
+                    <div class="event-button">
+                        <button class="btn btn-cta">Register</button>
+                    </div>
+                </div> -->
+            </div>
         </div>
     </div>
 
     <div id="profile-page" class="page">
-        <div class="container">
+        <div class="container" id="profile-container">
             <h2 class="page-title">Profile & Settings</h2>
 
-            <div class="profile-section">
+            <!-- <div class="profile-section">
                 <div class="profile-header">
                     <div class="profile-img">
                         <i class="fas fa-user"></i>
@@ -426,7 +390,7 @@
                         <p>United States</p>
                     </div>
                 </div>
-            </div>
+            </div> -->
 
             <!-- <div class="profile-section">
                 <h3>Account Settings</h3>
@@ -436,7 +400,7 @@
                         <p>Update your password regularly to keep your account secure</p>
                         <button class="btn btn-outline" style="margin-top: 15px;">Change Password</button>
                     </div>
-                    
+
                     <div class="detail-card">
                         <h4>Notification Preferences</h4>
                         <p>Manage how you receive notifications</p>
@@ -450,7 +414,7 @@
     <div id="sign-up-page" class="page">
         <div class="signup-container">
             <div class="signup-card">
-                <h1 class="signup-title">MediFind</h1>
+                <h1 class="signup-title">FindMyDOC</h1>
                 <p class="signup-subtitle">Create your account</p>
 
                 <form class="signup-form">
@@ -492,18 +456,18 @@
     <div id="login-page" class="page">
         <div class="login-container">
             <div class="login-card">
-                <h1 class="login-title">MediFind</h1>
+                <h1 class="login-title">FindMyDOC</h1>
                 <p class="login-subtitle">Sign in to continue</p>
 
                 <form class="login-form">
                     <div class="form-group">
                         <label for="email-login">Email Address</label>
-                        <input type="email-login" id="email-login" placeholder="Enter your email" required>
+                        <input type="email-login" id="email-login" placeholder="Enter your email">
                     </div>
 
                     <div class="form-group">
                         <label for="password-login">Password</label>
-                        <input type="password-login" id="password-login" placeholder="Enter your password" required>
+                        <input type="password-login" id="password-login" placeholder="Enter your password">
                     </div>
 
                     <button type="submit" class="btn-login">Login</button>
@@ -516,6 +480,9 @@
             </div>
         </div>
     </div>
+
+
+
     <!-- Footer -->
     <footer>
         <div class="container">
